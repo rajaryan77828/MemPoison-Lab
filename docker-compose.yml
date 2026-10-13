@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mempoison-lab:
+    build: .
+    container_name: mempoison_lab_ctf
+    ports:
+      - "8501:8501"
+    environment:
+      - AEGIS_PROVIDER_TYPE=offline
+      - AEGIS_DB_PATH=aegismemory_lab.db
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
